@@ -71,4 +71,7 @@ rm -r ~/tmp
 echo "Instalando buscador de arquivos no terminal, para utilizar basta pressionar Ctrl+t"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
+echo "Para ver, editar ou adicionar os aliases, visite o arquivo ~/.zshrc e procure por 'aliases', digite no terminal zshrc para abrir o arquivo automaticamente com o editor vim"
+sleep 2
+
 zsh 
