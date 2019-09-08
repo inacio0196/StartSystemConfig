@@ -1,0 +1,8 @@
+#!bin/bash 
+
+echo "Adicionando arquivos ao repositório git existente"
+
+git add .
+git commit -m "."
+git push
+
