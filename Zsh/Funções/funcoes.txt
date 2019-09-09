@@ -9,4 +9,12 @@ transfer(){
 	fi
 }
 
+gitpush(){
+	echo "Mandando arquivos para o repositório"
+	git add .
+	git commit -m "."
+	git push
+	#git push --force origin master
+}
+
 #-----------------------------------------------------------------
