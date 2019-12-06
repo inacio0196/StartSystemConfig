@@ -4,11 +4,14 @@ echo "Instalando react native."
 
 echo "instalando nodejs"
 
-sudo apt install curl 
+#sudo apt install curl 
+sudo pacman -S curl 
 
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 
-sudo apt install nodejs npm  
+#sudo apt install nodejs npm  
+sudo pacman -S nodejs npm 
+
 
 echo "Instalando react-native-cli"
 
@@ -24,7 +27,9 @@ java -version
 
 echo "Instalando libs graficas"
 
-sudo apt install gcc-multilib lib32z1 lib32stdc++6
+#sudo apt install gcc-multilib lib32z1 lib32stdc++6
+sudo pacman -S gcc-multilib lib32z1 lib32stdc++6 
+
 
 echo "Fazendo Download do sdk..."
 
