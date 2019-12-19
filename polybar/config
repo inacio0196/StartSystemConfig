@@ -1,0 +1,439 @@
+[colors]
+;Transparente==============
+;background = rgba(0, 0, 0, 0.7)
+;===========================
+background = #555555
+foreground = #eee
+red        = #4285F4
+blue       = #FBBC05
+teal       = #16a085
+green      = #87b158
+purple     = #7e57c2
+orange     = #EA4335
+indigo     = #5c6bc0
+black      = #4f4f4f
+white      = #e4e4e4
+yellow     = #e2b322
+brown      = #ae8e6c
+
+[bar/top]
+; Size
+width  = 100%
+height = 25
+
+; Offset
+;offset-x = 50%
+;offset-y = 50%
+
+; Position
+bottom = false
+
+; Radius
+radius = 0
+
+; Align modules fixed to middle
+fixed-center = true
+
+; Colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Underline
+line-size  = 1
+line-color = ${colors.foreground}
+
+; Border
+border-size  = 0
+border-color = ${colors.black}
+
+; Padding
+padding-left  = 0
+padding-right = 0
+
+; Margin of modules
+module-margin-left  = 1
+module-margin-right = 0
+
+; Font
+font-0 = Fira Code:style=Bold:size=10;3
+font-1 = Font Awesome 5 Free Solid:size=12;3
+
+; Modlues
+modules-left   = username gmail updates-arch-combined time date spotify
+modules-center = i3 
+modules-right  = battery pulseaudio network logout poweroff
+
+; Cursor actions
+cursor-click  = pointer
+cursor-scroll = ns-resize
+
+[module/spotify]
+type = custom/script
+exec = ~/.config/polybar/spotify.sh %artist% - %title%
+tail = true
+interval = 10
+
+
+
+[module/gmail]
+type = custom/script
+exec = ~/.config/polybar/gmail/launch.py
+tail = true
+click-left = xdg-open https://mail.google.com
+
+[module/username]
+type = custom/script
+exec = /home/rafael/.config/polybar/username.sh
+
+[module/updates-arch-combined]
+type = custom/script
+exec = /home/rafael/.config/polybar/updates-arch-combined.sh
+interval = 600
+
+[module/network]
+type = internal/network
+interface = wlp3s0
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+udspeed-minwidth = 5
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices like USB network adapters have 
+; an unknown state, even when they're running
+; Default: false
+unknown-as-up = true
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = <ramp-signal> <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+; Default: %ifname% %local_ip%
+label-connected =  %essid%
+label-connected-background = #555555
+label-connected-foreground = #eee
+
+; Default: (none)
+label-disconnected =  Desconectado
+label-disconnected-foreground = #F47373
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #eee
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+;========================================
+
+[module/time]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+;date =  %Y-%m-%d%
+date =  %d/%m/%Y
+
+; Optional time format
+;time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+; Available tags:
+;   <label> (default)
+format = 🕓 <label>
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date% %time%
+label-font = 3
+
+;[bar/bottom]
+;; Size
+;width  = 100%
+;height = 25
+;
+;; Offset
+;;offset-x = 50%
+;;offset-y = 50%
+;
+;; Position
+;bottom = true
+;
+;; Radius
+;radius = 0
+;
+;; Align modules fixed to middle
+;fixed-center = true
+;
+;; Colors
+;background = ${colors.background}
+;foreground = ${colors.foreground}
+;
+;; Underline
+;line-size  = 2
+;line-color = ${colors.foreground}
+;
+;; Border
+;border-size  = 0
+;border-color = ${colors.black}
+;
+;; Padding
+;padding-left  = 0
+;padding-right = 0
+;
+;; Margin of modules
+;module-margin-left  = 0
+;module-margin-right = 0
+;
+;; Font
+;font-0 = Fira Code:style=Bold:size=10;3
+;font-1 = Font Awesome 5 Free Solid:size=12;3
+;
+; Modlues
+;modules-left   = i3
+;modules-center = 
+;modules-right  =  logout reboot poweroff
+;
+;; Cursor actions
+;cursor-click  = pointer
+;cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+
+; Mouse click
+enable-click = true
+
+; Mouse scroll
+enable-scroll = false
+
+; Sort
+index-sort = true
+
+; Display icons
+fuzzy-match = true
+
+; Icons
+ws-icon-0       = Main;
+ws-icon-1       = Terminal;
+ws-icon-2       = Web;
+ws-icon-3       = Program;
+ws-icon-4       = Other; 
+ws-icon-default = 
+
+; Focused label
+label-focused            = %icon%
+label-focused-background = ${colors.teal}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding    = 2
+
+; Unfocused labels
+label-unfocused            = %icon%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-padding    = 2
+
+; Visible labels
+label-visible            = %icon%
+label-visible-foreground = ${colors.foreground}
+label-visible-padding    = 2
+
+; Urgent labels
+label-urgent            = %icon%
+label-urgent-foreground = ${colors.red}
+label-urgent-padding    = 2
+
+[module/weather]
+type = custom/script
+
+; Script
+;exec = /home/rafael/.config/polybar/scripts/weather.sh
+
+; Update interval
+;interval = 600
+
+; Label
+;label            = %output%
+;label-foreground = ${colors.foreground}
+;label-padding    = 1
+
+[module/battery]
+type = internal/battery
+
+; Full battery level
+full-at = 96
+
+; Battery and adapter
+battery = BAT1
+adapter = AC0
+
+; Charging label
+label-charging            =  %percentage%%
+label-charging-background = ${colors.teal}
+label-charging-foreground = ${colors.foreground}
+label-charging-padding    = 2
+
+; Discharging label
+label-discharging            =  %percentage%%
+label-discharging-background = ${colors.red}
+label-discharging-foreground = ${colors.foreground}
+label-discharging-padding    = 2
+
+; Full label
+label-full            =  100%
+label-full-background = ${colors.teal}
+label-full-foreground = ${colors.foreground}
+label-full-padding    = 2
+
+[module/temperature]
+type = internal/temperature
+
+; Label
+label            =  %temperature%
+label-background = ${colors.orange}
+label-foreground = ${colors.foreground}
+label-padding    = 2
+
+; Warning label
+label-warn            =  %temperature%
+label-warn-background = ${colors.red}
+label-warn-foreground = ${colors.foreground}
+label-warn-padding    = 2
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Volume label
+label-volume            =  %percentage%%
+label-volume-background = ${colors.blue}
+label-volume-foreground = ${colors.foreground}
+label-volume-padding    = 2
+
+click-right = xdg-open pavucontrol
+
+; Muted label
+label-muted            =  Mudo
+label-muted-background = ${colors.red}
+label-muted-foreground = ${colors.foreground}
+label-muted-padding    = 0
+
+[module/date]
+type = internal/date
+
+; Update interval
+interval = 1.0
+
+; Format
+time = %I:%M%p 
+
+; Label
+label            =  %time%
+label-foreground = ${colors.foreground}
+label-padding    = 1
+
+[module/lock]
+type = custom/text
+
+; Label
+content = 
+content-background = ${colors.teal}
+content-foreground = ${colors.foreground}
+content-padding    = 2
+
+; Mouse click
+click-left = slock
+
+[module/logout]
+type = custom/text
+
+; Label
+content            = 
+content-background = ${colors.purple}
+content-foreground = ${colors.foreground}
+content-padding    = 2
+
+; Mouse click
+click-left = i3-msg exit
+
+[module/reboot]
+type = custom/text
+
+; Label
+content            = 
+content-background = ${colors.blue}
+content-foreground = ${colors.foreground}
+content-padding    = 2
+
+; Mouse click
+click-left = reboot
+
+[module/poweroff]
+type = custom/text
+
+; Label
+content            = 
+content-background = ${colors.red}
+content-foreground = ${colors.foreground}
+content-padding    = 2
+
+; Mouse click
+click-left = poweroff
