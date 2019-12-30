@@ -5,7 +5,7 @@ Primeiro arquivo a ser executado quando o sistema acaba de ser instalado, cria a
 #React e Reactjs configs
 #Aliases
 #Zsh, Oh my Zsh
-#VS Code ,Discord, Franz, Retroarch
+#VS Code ,Discord, Franz, Retroarch, Krunner
 
 # i3Wm
 ![printfordotfiles](https://user-images.githubusercontent.com/53630208/71203607-0ba76e80-227d-11ea-9677-6b69c654eb41.png)
