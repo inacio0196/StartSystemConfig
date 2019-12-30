@@ -10,7 +10,7 @@ echo "Instalando Shell ZSH personalizado..."
 #sudo apt install unzip unrar 
 #sudo apt install zsh
 
-sudo pacman -S unzip unrar 
+sudo pacman -S unzip unrar krunner  
 sudo pacman -S zsh 
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
