@@ -7,7 +7,7 @@ echo 'Vamos começar!'
 echo
 echo 'Instalando...'
 echo
-sudo pacman -S nodejs ranger vlc kodi dmenu firefox pavucontrol evince k3b python-pip youtube-dl krita gimp simplescreenrecorder zsh dunst vim emacs  -noconfirm
+sudo pacman -S nodejs ranger vlc kodi dmenu firefox pavucontrol evince k3b python-pip youtube-dl krita gimp simplescreenrecorder zsh dunst vim  -noconfirm
 
 echo
 
