@@ -1,4 +1,4 @@
-#!bin/bash 
+#!/bin/bash 
 
 echo "Instalando react native."
 
@@ -33,7 +33,7 @@ sudo pacman -S gcc-multilib lib32z1 lib32stdc++6
 
 echo "Fazendo Download do sdk..."
 
-wget2 https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
 
 echo "Criando diretório Android, movendo arquivos necessários e extraindo..."
 
