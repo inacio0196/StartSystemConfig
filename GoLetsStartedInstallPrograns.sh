@@ -7,7 +7,7 @@ echo 'Vamos começar!'
 echo
 echo 'Instalando...'
 echo
-sudo pacman -S nodejs ranger vlc kodi dmenu firefox pavucontrol evince k3b python-pip youtube-dl krita gimp simplescreenrecorder zsh dunst vim net-tools arandr blueman -noconfirm
+sudo pacman -S nodejs ranger vlc kodi dmenu firefox pavucontrol evince k3b python-pip youtube-dl krita gimp simplescreenrecorder zsh dunst vim net-tools arandr blueman --noconfirm
 
 echo
 
@@ -29,7 +29,7 @@ cd /tmp
 
 echo 'Instalando depêndencias do YAY...'
 
-sudo pacman -S git go -noconfirm
+sudo pacman -S git go --noconfirm
 
 echo 'Clonando repositorio...'
 
