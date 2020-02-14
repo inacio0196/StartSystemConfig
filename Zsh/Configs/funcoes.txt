@@ -1,6 +1,6 @@
-#Funções: 
+#Funções:
 
-transfer(){
+backup(){
 	if [[ -z "$1" ]]; then
 		echo "É necessário informar o nome do arquivo."
 	else
